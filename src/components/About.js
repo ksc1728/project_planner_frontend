@@ -1,14 +1,67 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import image from '../logo.jpg';
+import image1 from '../logo.jpg';
+// import Navbar from "./Navbar";
+import 'bootstrap/dist/css/bootstrap.min.css';
+// C:\Users\SRICHANDANA\Desktop\mern_project\frontend\src\logo.jpg
 
 function About({ children }) {
   return (
-    <div>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/login">Logout</Link>
-      </nav>
       <div>
+  <nav style={{
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    background: 'skyblue',
+    height: '65px',
+    padding: '0 20px',
+  }}>
+    <div>
+      <img src={image} alt='Logo' style={{
+        height: '50px',
+        width: '50px',
+        marginRight: '20px',
+      }} />
+    </div>
+    <div>
+      <button style={{
+        backgroundColor: 'tomato',
+        borderRadius: '4px',
+        padding: '8px 20px',
+        marginRight: '20px',
+        transition: 'opacity 0.2s',
+      }} 
+      onMouseEnter={(e) => e.target.style.opacity = 0.6}
+      onMouseLeave={(e) => e.target.style.opacity = 1}>
+        <Link to="/" style={{
+          textDecoration: 'none',
+          color: 'white',
+          fontSize: '16px',
+        }}>
+          Home
+        </Link>
+      </button>
+      <button style={{
+        backgroundColor: 'tomato',
+        borderRadius: '4px',
+        padding: '8px 20px',
+        transition: 'opacity 0.2s',
+      }} 
+      onMouseEnter={(e) => e.target.style.opacity = 0.6}
+      onMouseLeave={(e) => e.target.style.opacity = 1}>
+        <Link to="/login" style={{
+          textDecoration: 'none',
+          color: 'white',
+          fontSize: '16px',
+        }}>
+          Logout
+        </Link>
+      </button>
+    </div>
+  </nav>
+
+    <div>
         {<div>
     <section className="py-3 py-md-5">
       <div className="container">
@@ -17,44 +70,36 @@ function About({ children }) {
             <img
               className="img-fluid rounded"
               loading="lazy"
-              src="./assets/img/about-img-1.jpg"
+              src={image1}
               alt="About 1"
             />
           </div>
           <div className="col-12 col-lg-6 col-xl-7">
             <div className="row justify-content-xl-center">
               <div className="col-12 col-xl-11">
-                <h2 className="mb-3">Who Are We?</h2>
+              {/* style={{color: 'yellow',fontSize: '',}} */}
+                <h2 className="mb-3" style={{color: '#FFC300',fontSize: '',}}>Who Are We?</h2>
                 <p className="lead fs-4 text-secondary mb-3">
-                  We help people to build incredible brands and superior
-                  products. Our perspective is to furnish outstanding captivating
+                  We help organizations successfully plan, execute, and monitor their projects. 
+                  Our perspective is to furnish outstanding captivating
                   services.
                 </p>
-                <p className="mb-5">
+                <p className="mb-5" style={{color: '#1B0F96',fontSize: '',}}>
                   We are a fast-growing company, but we have never lost sight of
                   our core values. We believe in collaboration, innovation, and
-                  customer satisfaction. We are always looking for new ways to
+                  customer satisfaction. Our team of experienced project managers 
+                  and technology experts is dedicated to making project 
+                  management more accessible, intuitive, and effective. 
+                  We have a passion for helping our clients achieve their 
+                  project goals, and we take pride in the positive impact we've had on countless 
+                  businesses and projects. We are always looking for new ways to
                   improve our products and services.
                 </p>
                 <div className="row gy-4 gy-md-0 gx-xxl-5X">
                   <div className="col-12 col-md-6">
                     <div className="d-flex">
-                      <div className="me-4 text-primary">
-                        {/* <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="32"
-                          height="32"
-                          fill="currentColor"
-                          className="bi bi-gear-fill"
-                          viewBox="0 0 16 16"
-                        >
-                          <path
-                            d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c-1.4-.413-1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"
-                          />
-                        </svg> */}
-                      </div>
                       <div>
-                        <h2 className="h4 mb-3">Versatile Brand</h2>
+                        <h2 className="h4 mb-3" style={{color: 'lightgreen',fontSize: '',}}>Versatile Brand</h2>
                         <p className="text-secondary mb-0">
                           We are crafting a digital method that subsists life
                           across all mediums.
@@ -79,7 +124,7 @@ function About({ children }) {
                         </svg>
                       </div>
                       <div>
-                        <h2 className="h4 mb-3">Digital Agency</h2>
+                        <h2 className="h4 mb-3" style={{color: 'red',fontSize: '',}}>Digital Agency</h2>
                         <p className="text-secondary mb-0">
                           We believe in innovation by merging primary with
                           elaborate ideas.

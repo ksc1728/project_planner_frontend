@@ -53,16 +53,16 @@ import ContactUs from './components/ContactUs';
 
 function App() {
   return (
-    <Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/About" element={<About />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/kanban" element={<Kanban />} /> 
+        <Route path="/kanban" element={<Kanban />} />
+        <Route path="/createproject" element={<CreateProject/>}/>
+        <Route path="/navbar" element={<Navbar/>}/>
       </Routes>
-    </Router>
   );
 }
 

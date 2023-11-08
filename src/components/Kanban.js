@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom';
 function Kanban() {
   return (
     <div>
-      <Navbar /> {/* Include the Navbar component */}
+      <Navbar /> {/* the Navbar component */}
       <div className="flex container mx-auto">
-        <Sidebar /> {/* Include the Sidebar component */}
+        <Sidebar /> {/* the Sidebar component */}
         <div className="flex-1">
-          <Task /> {/* Include the Task component here */}
+          <Task /> {/* the Task component here */}
           {/* Other Kanban content */}
         </div>
       </div>
