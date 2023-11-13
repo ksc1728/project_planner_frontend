@@ -26,7 +26,7 @@ function About({ children }) {
     </div>
     <div>
       <button style={{
-        backgroundColor: 'tomato',
+        backgroundColor: '#39A7FF',
         borderRadius: '4px',
         padding: '8px 20px',
         marginRight: '20px',
@@ -43,7 +43,7 @@ function About({ children }) {
         </Link>
       </button>
       <button style={{
-        backgroundColor: 'tomato',
+        backgroundColor: '#39A7FF',
         borderRadius: '4px',
         padding: '8px 20px',
         transition: 'opacity 0.2s',
@@ -74,12 +74,12 @@ function About({ children }) {
               alt="About 1"
             />
           </div>
-          <div className="col-12 col-lg-6 col-xl-7">
+          <div className="col-12 col-lg-6 col-xl-7" style={{backgroundColor:"#940B92",boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",height:"400px",padding:"20px",borderRadius:"10px"}}>
             <div className="row justify-content-xl-center">
               <div className="col-12 col-xl-11">
               {/* style={{color: 'yellow',fontSize: '',}} */}
-                <h2 className="mb-3" style={{color: '#FFC300',fontSize: '',}}>Who Are We?</h2>
-                <p className="lead fs-4 text-secondary mb-3">
+                <h2 className="mb-3" style={{color: '#A0E9FF'}}>Who Are We?</h2>
+                <p className="lead fs-4 mb-3" style={{color: '#F2FFE9'}}>
                   We help organizations successfully plan, execute, and monitor their projects. 
                   Our perspective is to furnish outstanding captivating
                   services.
@@ -95,12 +95,12 @@ function About({ children }) {
                   businesses and projects. We are always looking for new ways to
                   improve our products and services.
                 </p>
-                <div className="row gy-4 gy-md-0 gx-xxl-5X">
-                  <div className="col-12 col-md-6">
-                    <div className="d-flex">
+                <div className="row gy-4 gy-md-0 gx-xxl-5X" >
+                  <div className="col-12 col-md-6" >
+                    <div className="d-flex" style={{backgroundColor:"#0174BE",boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",height:"150px",padding:"20px",borderRadius:"10px"}}>
                       <div>
-                        <h2 className="h4 mb-3" style={{color: 'lightgreen',fontSize: '',}}>Versatile Brand</h2>
-                        <p className="text-secondary mb-0">
+                        <h2 className="h4 mb-3" style={{color: '#F2FFE9',fontSize: '',}}>Versatile Brand</h2>
+                        <p className="mb-0" style={{color: '#E0F4FF',fontSize: '',}}>
                           We are crafting a digital method that subsists life
                           across all mediums.
                         </p>
@@ -108,7 +108,7 @@ function About({ children }) {
                     </div>
                   </div>
                   <div className="col-12 col-md-6">
-                    <div className="d-flex">
+                    <div className="d-flex" style={{backgroundColor:"#FFFB73",boxShadow:"0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",height:"150px",padding:"20px",borderRadius:"10px"}}>
                       <div className="me-4 text-primary">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -125,7 +125,7 @@ function About({ children }) {
                       </div>
                       <div>
                         <h2 className="h4 mb-3" style={{color: 'red',fontSize: '',}}>Digital Agency</h2>
-                        <p className="text-secondary mb-0">
+                        <p className="mb-0" style={{color: '#F05941',fontSize: '',}}>
                           We believe in innovation by merging primary with
                           elaborate ideas.
                         </p>

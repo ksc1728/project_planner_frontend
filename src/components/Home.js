@@ -27,8 +27,10 @@ const Home = () => {
       <div className="container" style={{ backgroundColor: 'white' }}>
         <div className="row gy-4">
           <div className="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center">
-            <h1 style={{ color: 'tomato' }}>Welcome to Project Planner!</h1><br></br>
-            <p style={{ color: 'rgb(125, 107, 231)' }}>At Project Planner, we are dedicated to helping you efficiently manage your projects from start to finish. Our user-friendly platform is designed to streamline your project management processes, enhance collaboration, and improve productivity. Whether you're a small business or a large enterprise, we have the tools and expertise to support your project management needs. Explore our site to learn more about our services, read success stories, and discover valuable resources to boost your project management skills.</p>
+            <h1 style={{ color: 'tomato',fontSize:'50px' }}>Welcome to Project Planner!</h1><br></br>
+            <p style={{ color: 'rgb(125, 107, 231)'}}>At Project Planner, we are dedicated to helping you efficiently manage your projects from start to finish. Our user-friendly platform is designed to streamline your project management processes, enhance collaboration, and improve productivity.</p>
+            <p style={{ color: 'rgb(125, 107, 231)' }}>Whether you're a small business or a large enterprise, we have the tools and expertise to support your project management needs. Explore our site to learn 
+            more about our services, read success stories, and discover valuable resources to boost your project management skills.</p>
             <div>
               <Link to="/login">
                 <a
@@ -39,7 +41,8 @@ const Home = () => {
                     color: 'white',
                     border: 'none',
                     marginRight: '30px',
-                    marginTop:'45px'
+                    marginTop:'35px',
+                    padding:'10px 40px'
                   }}
                   role="button"
                   aria-pressed="true"
@@ -55,7 +58,8 @@ const Home = () => {
                     backgroundColor: '#363062',
                     color: 'white',
                     border: 'none',
-                    marginTop:'45px'
+                    marginTop:'35px',
+                    padding:'10px 40px'
                   }}
                   role="button"
                   aria-pressed="true"

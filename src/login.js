@@ -112,10 +112,26 @@ import image1 from './logo.jpg';
 // }
 
 // export default Login;
-const Login=() =>
-{const handleSubmit = (e) => {
+const Login=() =>{
     
-  // Handle form submission logic here
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = async () => {
+    try {
+      const response = await fetch('/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+      console.log(data); // Handle the response as needed
+    } catch (error) {
+      console.error('Error:', error);
+    }
 };
   return (
     <section className="vh" style={{ backgroundColor: '#A7D397' }}>

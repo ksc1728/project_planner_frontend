@@ -8,10 +8,25 @@ import { Link } from 'react-router-dom';
 // C:\Users\SRICHANDANA\Desktop\mern_project\frontend\src\close-up-young-colleagues-having-meeting_23-2149060288.avif
 // C:\Users\SRICHANDANA\Desktop\mern_project\frontend\src\businesspeople-meeting-office-working_23-2148908922.avif
 
-const Signup=() =>
-{const handleSubmit = (e) => {
-    
-  // Handle form submission logic here
+const Signup=() =>{
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = async () => {
+    try {
+      const response = await fetch('/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+      console.log(data); // Handle the response as needed
+    } catch (error) {
+      console.error('Error:', error);
+    }
 };
   return (
     <section className="vh" style={{ backgroundColor: 'white' }}>
