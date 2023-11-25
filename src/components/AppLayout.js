@@ -16,3 +16,7 @@ function AppLayout({ children }) {
 }
 
 export default AppLayout;
+// git commit -m "first commit"
+//   git branch -M main
+//   git remote add origin https://github.com/ksc1728/project_planner_frontend.git
+//   git push -u origin main
