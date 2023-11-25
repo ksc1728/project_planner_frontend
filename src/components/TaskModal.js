@@ -1,34 +1,43 @@
-import React, { Fragment, useEffect, useState } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
-// import Attachment from '../image/attachment.jpg'
-import axios from 'axios'
-import toast from 'react-hot-toast'
+// import React, { Fragment, useEffect, useState } from 'react'
+// import { Dialog, Transition } from '@headlessui/react'
+// // import Attachment from '../image/attachment.jpg'
+// import axios from 'axios'
+// import toast from 'react-hot-toast'
 
+import React, { Fragment, useEffect, useState } from 'react';
+import { Dialog, Transition } from '@headlessui/react';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
-//first later capital in javascript ?
+function capitalizeFirstLetter(string) {
+    return string ? string.charAt(0).toUpperCase() + string.slice(1) : '';
+}
 
-
-
-
-const TaskModal = ({ isOpen, setIsOpen, id }) => {
-    const [taskData, setTaskData] = useState('')
-
-    const capitalizeFirstLetter = (string) => {
-        return string ? string.charAt(0).toUpperCase() + string.slice(1) : ''
-    }
-
+function TaskModal({ isOpen, setIsOpen, id }) {
+    const [taskData, setTaskData] = useState({});
+  
     useEffect(() => {
-        if (isOpen) {
-            axios.get(`http://localhost:9000/project/${id.projectId}/task/${id.id}`)
-                .then((data) => {
-                    setTaskData({ ...data.data[0].task[0] });
-                    // console.log(taskData);
-                })
-                .catch((error) => {
-                    toast.error('something went wrong')
-                })
-        }
-    }, [isOpen]);
+      if (isOpen && id && id.projectId && id.taskId) {
+        axios
+        //   .get(`http://localhost:9000/project/${id.projectId}/task/${id.taskId}`)
+        .get(`https://project-planner-server1.onrender.com/project/${id.projectId}/task/${id.taskId}
+        `)
+
+          .then((response) => {
+            const { project, task } = response.data;
+            if (project && task) {
+              // Assuming 'project' and 'task' have the necessary fields
+              setTaskData({ project, task });
+            } else {
+              toast.error('Project or Task not found');
+            }
+          })
+          .catch((error) => {
+            toast.error('Something went wrong');
+          });
+      }
+    }, [isOpen, id]);
+  
 
     return (
         <Transition appear show={isOpen} as={Fragment}>
@@ -46,7 +55,6 @@ const TaskModal = ({ isOpen, setIsOpen, id }) => {
                         <div className="fixed inset-0 bg-black/30" />
                     </Transition.Child>
                     <div className="fixed inset-0 flex items-center justify-center p-4 w-screen h-screen">
-                        {/* <div className="fixed inset-0 "> */}
                         <Transition.Child
                             as={Fragment}
                             enter="ease-out duration-300"
@@ -57,7 +65,6 @@ const TaskModal = ({ isOpen, setIsOpen, id }) => {
                             leaveTo="opacity-0 scale-95"
                         >
                             <Dialog.Panel className="rounded-md bg-white max-w-[85%] w-[85%] h-[85%] overflow-y-hidden">
-
                                 <Dialog.Title as='div' className={'bg-white shadow px-6 py-4 rounded-t-md sticky top-0'}>
                                     <h1>Task details</h1>
                                     <button onClick={() => setIsOpen(false)} className='absolute right-6 top-4 text-gray-500 hover:bg-gray-100 rounded focus:outline-none focus:ring focus:ring-offset-1 focus:ring-gray-500/30 '>
@@ -67,30 +74,22 @@ const TaskModal = ({ isOpen, setIsOpen, id }) => {
                                     </button>
                                 </Dialog.Title>
                                 <div className='flex gap-4 h-[inherit]'>
-                                    <div className="!w-8/12 px-8 space-y-3 py-4 min-h-max  overflow-y-auto">
+                                    <div className="!w-8/12 px-8 space-y-3 py-4 min-h-max overflow-y-auto">
                                         <h1 className='text-3xl font-semibold '>{capitalizeFirstLetter(taskData.title)}</h1>
                                         <p className='text-gray-600'>{capitalizeFirstLetter(taskData.description)}</p>
-                                        {/* <p className='text-gray-600'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Asperiores modi error, voluptatibus ullam odio nemo culpa optio incidunt, soluta sunt eos laboriosam labore animi dolorum voluptas officiis fugit perspiciatis laborum.</p> */}
-                                        {/* <div>
-                                            <h3 className='text-base text-gray-600 font-medium mt-3 mb-2'>Attachment</h3>
-                                            <div className="flex items-center">
-                                                <img className='aspect-video w-56 rounded' src={Attachment} alt="" />
-                                            </div>
-                                        </div> */}
+                                        {/* ... (rest of the component) */}
                                     </div>
                                     <div className="w-4/12 py-4 pr-4">
-                                        {/* <div className='border h-full rounded-md'></div> */}
+                                        {/* ... (rest of the component) */}
                                     </div>
                                 </div>
-
                             </Dialog.Panel>
                         </Transition.Child>
-
                     </div>
                 </div>
             </Dialog>
         </Transition>
-    )
+    );
 }
 
-export default TaskModal
+export default TaskModal;

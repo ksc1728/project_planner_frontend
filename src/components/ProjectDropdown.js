@@ -4,13 +4,14 @@ import axios from "axios"
 import toast from 'react-hot-toast'
 import AddProjectModal from './AddProjectModal'
 
-const ProjectDropdown = ({ id, navigate }) => {
+const ProjectDropdown = ({ id,userId, navigate }) => {
     const [isModalOpen, setModalState] = useState(false)
     const handleDelete = async () => {
         try {
-            const data = await axios.delete(`http://localhost:9000/project/${id}`)
-            if (data.data.deletedCount > 0) {
+            const data = await axios.delete(`https://project-planner-server1.onrender.com/project/delete/${id}`)
+            if (data.status===200) {
                 toast.success('Record deleted successfully')
+                window.location.reload();
                 navigate('/')
                 const customEvent = new CustomEvent('projectUpdate');
                 document.dispatchEvent(customEvent);
@@ -62,9 +63,9 @@ const ProjectDropdown = ({ id, navigate }) => {
                     </div>
                 </Popover.Panel>
             </Popover>
-            <AddProjectModal isModalOpen={isModalOpen} closeModal={closeModal} edit={true} id={id} />
+            <AddProjectModal isModalOpen={isModalOpen} closeModal={closeModal} edit={true} id={userId} prid={id} />
         </>
     )
 }
 
-export default ProjectDropdown
+export default ProjectDropdown;
